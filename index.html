@@ -28,10 +28,23 @@
             background-position: center 0px;
             will-change: background-position;
         }
+
+        /* Mencegah scroll saat loading aktif */
+        body.loading-active {
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden loading-active">
 
+    <div id="loading-screen" class="fixed inset-0 bg-blue-950 z-[9999] flex flex-col items-center justify-center transition-opacity duration-500 ease-out">
+        <div class="relative flex flex-col items-center animate-fade-in px-4">
+            <div class="w-16 h-16 border-4 border-blue-200 border-t-amber-400 rounded-full animate-spin mb-6"></div>
+            
+            <h2 class="text-white font-bold text-xl tracking-wider mb-2 text-center">KKN UGM GONDOKUSUMAN</h2>
+            <p class="text-blue-200 text-sm font-light tracking-wide text-center">Memuat halaman, mohon tunggu...</p>
+        </div>
+    </div>
     <nav class="bg-blue-900 text-white sticky top-0 z-50 shadow-md backdrop-blur-md bg-opacity-95 backdrop-filter transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
             <a href="#" class="flex items-center gap-3 text-xl font-bold tracking-wider z-50 transform hover:scale-105 transition duration-300 ease-in-out">
@@ -237,6 +250,20 @@
     </footer>
 
     <script>
+        // LOGIKA LOADING SCREEN
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            
+            // Efek memudar (fade out)
+            loadingScreen.style.opacity = '0';
+            
+            // Menghilangkan elemen dari DOM setelah animasi selesai & mengaktifkan kembali scroll
+            setTimeout(function() {
+                loadingScreen.style.display = 'none';
+                document.body.classList.remove('loading-active');
+            }, 500); // 500ms sesuai durasi duration-500 di class CSS
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             // 1. LOGIKA MENU 3 GARIS
             const menuBtn = document.getElementById('menu-btn');
@@ -267,8 +294,6 @@
             
             window.addEventListener('scroll', function() {
                 let offset = window.pageYOffset;
-                // Nilai 0.4 berarti background bergerak 40% dari kecepatan scroll teks asli. 
-                // Kurangi nilainya jika ingin gerakannya jauh lebih lambat (misal: 0.2).
                 parallaxSection.style.backgroundPosition = "center " + (offset * 0.4) + "px";
             });
         });
