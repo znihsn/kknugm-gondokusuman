@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publikasi Subunit Baciro 1 - SRAWUNGGONKU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION HALAMAN INTERNAL -->
+    <header class="bg-blue-900 text-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 text-sm font-semibold hover:text-amber-400 transition duration-200">
+                &larr; Kembali ke Beranda
+            </a>
+            <span class="text-xs font-bold tracking-wider opacity-75">SUBUNIT BACIRO 1</span>
+        </div>
+    </header>
+
+    <!-- KONTEN PREVIEW UTAMA -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 mb-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 mb-4 border-b border-gray-100 gap-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-blue-900">Poster Kegiatan Trash Hunter</h1>
+                    <p class="text-sm text-gray-500">Format Dokumen: PDF | Ukuran: 4.5 MB</p>
+                </div>
+                <!-- Tombol Download Cadangan Direct Link -->
+                <a href="https://raw.githubusercontent.com/srawunggonku/kknugm-gondokusuman/main/png2pdf.pdf" download class="bg-blue-900 text-white px-5 py-2.5 rounded-lg shadow-md hover:bg-blue-800 active:scale-95 transition-all duration-150 text-sm font-medium w-full sm:w-auto text-center tracking-wide">
+                    Unduh File
+                </a>
+            </div>
+    
+            <!-- Frame Penampil PDF (A4 Ratio) dengan Google Docs Viewer + Anti Auto-Download -->
+            <div class="w-full bg-gray-50 rounded-xl overflow-hidden shadow-inner border border-gray-200 aspect-[1/1.414] md:h-[950px] md:w-auto relative">
+                <iframe 
+                    id="subunit-pdf"
+                    data-src="https://raw.githubusercontent.com/srawunggonku/kknugm-gondokusuman/main/png2pdf.pdf"
+                    class="w-full h-full border-none">
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER HALAMAN INTERNAL -->
+    <footer class="bg-blue-950 text-gray-400 text-center py-4 text-xs mt-auto">
+        <p>&copy; 2026 KKN-PPM UGM Unit Gondokusuman - Subunit Baciro 1.</p>
+    </footer>
+
+    <script>
+        // Mengamankan pemuatan ulang Google Docs Viewer di halaman internal
+        document.addEventListener("DOMContentLoaded", function() {
+            const iframe = document.getElementById('subunit-pdf');
+            if (iframe) {
+                const rawUrl = iframe.getAttribute('data-src');
+                const cacheBuster = new Date().getTime();
+                iframe.src = `https://docs.google.com/gview?url=${rawUrl}?cb=${cacheBuster}&embedded=true`;
+            }
+        });
+    </script>
+
+</body>
+</html>
