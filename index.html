@@ -250,19 +250,26 @@
             </div>
 
             <!-- Dokumen 2: Modul Edukasi -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 mb-4 border-b border-gray-100 gap-4">
-                    <div>
-                        <h4 class="text-xl font-bold text-gray-900">Buku Monografi Kecamatan Gondokusuman 2026</h4>
-                        <p class="text-sm text-gray-500">Format: PDF | Ukuran: 4.5 MB</p>
-                    </div>
-                <a href="https://raw.githubusercontent.com/srawunggonku/kknugm-gondokusuman/main/Zaini%20Ihsan_IK6AB_517845_Laporan12.pdf" download class="bg-blue-900 text-white px-5 py-2.5 rounded-lg shadow-md hover:bg-blue-800 active:scale-95 transition-all duration-150 text-sm font-medium w-full sm:w-auto text-center tracking-wide">
+            <<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 mb-4 border-b border-gray-100 gap-4">
+        <div>
+            <h4 class="text-xl font-bold text-gray-900">Buku Monografi Kecamatan Gondokusuman 2026</h4>
+            <p class="text-sm text-gray-500">Format: PDF | Ukuran: 4.5 MB</p>
+        </div>
+        <!-- Tombol Unduh File Langsung -->
+        <a href="https://raw.githubusercontent.com/srawunggonku/kknugm-gondokusuman/main/Zaini%20Ihsan_IK6AB_517845_Laporan12.pdf" download class="bg-blue-900 text-white px-5 py-2.5 rounded-lg shadow-md hover:bg-blue-800 active:scale-95 transition-all duration-150 text-sm font-medium w-full sm:w-auto text-center tracking-wide">
             Unduh File
         </a>
     </div>
-    <div class="w-full h-[500px] md:h-[600px] bg-gray-100 rounded-xl overflow-hidden shadow-inner">
-        <embed src="https://raw.githubusercontent.com/srawunggonku/kknugm-gondokusuman/main/Zaini%20Ihsan_IK6AB_517845_Laporan12.pdf" type="application/pdf" class="w-full h-full border-none">
+    
+    <!-- Kontainer Preview PDF Langsung Tampil di Halaman -->
+    <div class="w-full h-[500px] md:h-[600px] bg-gray-100 rounded-xl overflow-hidden shadow-inner border border-gray-200">
+        <iframe 
+            src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/srawunggonku/kknugm-gondokusuman/main/Zaini%20Ihsan_IK6AB_517845_Laporan12.pdf&embedded=true" 
+            class="w-full h-full border-none">
+        </iframe>
     </div>
+</div>
 </div>
 
         </div>
